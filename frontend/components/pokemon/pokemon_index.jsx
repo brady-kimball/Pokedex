@@ -1,7 +1,8 @@
 import React from 'react';
 import PokemonIndexItem from './pokemon_index_item'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import PokemonDetailContainer from './pokemon_detail_container'
+import PokemonFormContainer from './pokemon_form_container'
 
 class PokemonIndex extends React.Component {
 
@@ -15,7 +16,10 @@ class PokemonIndex extends React.Component {
     ));
     return (
       <section className="pokedex">
-        <Route path="/pokemon/:pokemonId" component={ PokemonDetailContainer } />
+        <Switch>
+          <Route path="/pokemon/:pokemonId" component={ PokemonDetailContainer } />
+          <Route component={ PokemonFormContainer } />
+        </Switch>
         <ul>
           {pokemonLis}
         </ul>

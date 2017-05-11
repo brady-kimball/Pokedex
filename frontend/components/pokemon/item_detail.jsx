@@ -6,7 +6,7 @@ const ItemDetail = ({ item }) => (
     <li>{item.price}</li>
     <li>{item.happiness}</li>
     <li>
-      <img src={item.image_url} width="30px"></img>
+      <img src={item.image_url} width="25px"></img>
     </li>
   </ul>
 );
