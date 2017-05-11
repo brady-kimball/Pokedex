@@ -1,5 +1,18 @@
-html, body {
+html, body, ul {
 	margin: 0;
 	padding: 0;
 	border: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+input, select {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	color: black;
+	-webkit-appearance: none;
+	background-color: transparent;
 }

@@ -61,6 +61,7 @@ class PokemonForm extends React.Component {
     ));
     return(
       <section>
+        <img src="/assets/pokemon-logo.svg" alt="Copyright of Nintendo Pokemon" />
         {this.errors()}
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input  type="text"

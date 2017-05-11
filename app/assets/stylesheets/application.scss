@@ -38,10 +38,6 @@ header {
   }
 }
 
-ul {
-  list-style: none;
-}
-
 nav {
   width: 900px;
   background-color: $red;
@@ -94,7 +90,10 @@ nav {
 
 #root {
   height: 100%;
-  padding-top: 20px;
+}
+
+#root > * {
+  height: 100%;
 }
 
 h2 {
@@ -105,4 +104,78 @@ h3 {
   font-size: 24px;
   text-align: center;
   color: $black;
+}
+
+.pokedex {
+  height: calc(100% - 90px);
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding-top: 20px;
+
+  section{
+    flex: auto;
+    border: solid black 6px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: 0 30px;
+    border-radius: 20px;
+    background: $light-grey;
+
+    img{
+      display: flex;
+      margin: auto;
+      padding: 10px;
+    }
+
+    form {
+      width: 70%;
+      min-width: 200px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  ul {
+    width: 300px;
+    overflow-y: scroll;
+
+    .pokemonIndexItem {
+      height: 31px;
+      border-top: 1px solid $grey;
+      display: flex;
+      align-items: center;
+
+      a {
+        padding: 0px 5px;
+        display: flex;
+        height: 19px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        text-decoration: none;
+        color: black;
+      }
+
+      a * {
+        margin: auto 5px;
+      }
+    }
+
+    .pokemonIndexItem:last-child {
+      border-bottom: 1px solid $grey;
+    }
+
+    .pokemonIndexItem:hover {
+      background-color: $grey
+    }
+  }
+}
+
+body {
+  height: 100%;
 }
