@@ -2,12 +2,9 @@ import React from 'react';
 
 const ItemDetail = ({ item }) => (
   <ul>
-    <li>{item.name}</li>
-    <li>{item.price}</li>
-    <li>{item.happiness}</li>
-    <li>
-      <img src={item.image_url} width="25px"></img>
-    </li>
+    <li><h3>{item.name}</h3></li>
+    <li><h3>Price: {item.price}</h3></li>
+    <li><h3>Happiness: {item.happiness}</h3></li>
   </ul>
 );
 

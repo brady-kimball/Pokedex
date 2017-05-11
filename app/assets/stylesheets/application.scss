@@ -51,6 +51,7 @@ nav {
     justify-content: flex-end;
 
     li {
+
       a {
         background-color: white;
         border-radius: 4px;
@@ -98,10 +99,12 @@ nav {
 
 h2 {
   font-size: 32px;
+  text-align: center;
+  color: black;
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
   color: $black;
 }
@@ -113,21 +116,45 @@ h3 {
   justify-content: space-between;
   padding-top: 20px;
 
-  section{
+  section {
     flex: auto;
     border: solid black 6px;
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
-    justify-content: center;
+    justify-content: space-around;
     margin: 0 30px;
     border-radius: 20px;
     background: $light-grey;
 
+    ul {
+      overflow: hidden;
+
+      li {
+        line-height: 1.5;
+      }
+    }
+
     img{
       margin-bottom: 10px;
       padding: 10px;
+    }
+
+    figure {
+      background: linear-gradient(315deg,
+                  rgb(212, 51, 22),
+                  rgb(255, 255, 0));
+      border-radius: 10px;
+      border: 4px solid black;
+      width: 70%;
+      max-height: 400px;
+
+      .poke-image {
+        width: 100%;
+        max-height: 350px;
+      }
+
     }
 
     .errors {
@@ -186,6 +213,39 @@ h3 {
         }
       }
     }
+
+    article {
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+      border: 4px solid black;
+      background: white;
+      border-radius: 10px;
+      align-items: center;
+      padding: 5px;
+      background-image: radial-gradient(circle at 100% 150%, #F6F6F6 24%, #fff 25%, #fff 28%, #F6F6F6 29%, #F6F6F6 36%, #fff 36%, #fff 40%, transparent 40%, transparent),radial-gradient(circle at 0 150%, #F6F6F6 24%, #fff 25%, #fff 28%, #F6F6F6 29%, #F6F6F6 36%, #fff 36%, #fff 40%, transparent 40%, transparent),radial-gradient(circle at 50% 100%, #fff 10%, #F6F6F6 11%, #F6F6F6 23%, #fff 24%, #fff 30%, #F6F6F6 31%, #F6F6F6 43%, #fff 44%, #fff 50%, #F6F6F6 51%, #F6F6F6 63%, #fff 64%, #fff 71%, transparent 71%, transparent),radial-gradient(circle at 100% 50%, #fff 5%, #F6F6F6 6%, #F6F6F6 15%, #fff 16%, #fff 20%, #F6F6F6 21%, #F6F6F6 30%, #fff 31%, #fff 35%, #F6F6F6 36%, #F6F6F6 45%, #fff 46%, #fff 49%, transparent 50%, transparent),radial-gradient(circle at 0 50%, #fff 5%, #F6F6F6 6%, #F6F6F6 15%, #fff 16%, #fff 20%, #F6F6F6 21%, #F6F6F6 30%, #fff 31%, #fff 35%, #F6F6F6 36%, #F6F6F6 45%, #fff 46%, #fff 49%, transparent 50%, transparent);
+
+      .item-images {
+        display: flex;
+        border: 4px solid black;
+        border-radius: 10px;
+        align-items: center;
+        padding: 10px;
+        background: white;
+
+        img {
+          margin: 0;
+          width: 125px;
+          height: auto;
+
+          &:hover {
+            -webkit-box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.75);
+            box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.75);
+          }
+        }
+      }
+    }
   }
 
   ul {
@@ -195,13 +255,13 @@ h3 {
     .pokemonIndexItem {
       height: 31px;
       border-top: 1px solid $grey;
-      display: flex;
+      display: block;
       align-items: center;
 
       a {
         padding: 0px 5px;
         display: flex;
-        height: 19px;
+        height: 100%;
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
