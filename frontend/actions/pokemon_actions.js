@@ -4,6 +4,8 @@ export const RECEIVE_ALL_POKEMON = 'RECEIVE_ALL_POKEMON';
 export const RECEIVE_POKEMON = 'RECEIVE_POKEMON';
 export const RECEIVE_SINGLE_POKEMON = 'RECEIVE_SINGLE_POKEMON';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const START_LOADING_ALL_POKEMON = "START_LOADING_ALL_POKEMON";
+export const START_LOADING_POKEMON = "START_LOADING_POKEMON"
 
 export const receiveAllPokemon = pokemon => ({
   type: RECEIVE_ALL_POKEMON,
@@ -26,11 +28,13 @@ export const receivePokemon = pokemon => ({
 });
 
 export const requestAllPokemon = () => (dispatch) => {
+  dispatch({type: START_LOADING_ALL_POKEMON})
   return APIUtil.fetchAllPokemon()
     .then(pokemon => dispatch(receiveAllPokemon(pokemon)));
 };
 
 export const requestSinglePokemon = (id) => (dispatch) => {
+  dispatch({type: START_LOADING_POKEMON})
   return APIUtil.fetchPokemon(id)
     .then(pokemon => dispatch(receivePokemon(pokemon)));
 };

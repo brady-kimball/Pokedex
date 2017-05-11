@@ -10,12 +10,25 @@ class PokemonIndex extends React.Component {
     this.props.requestAllPokemon();
   }
 
+  loadSpinner() {
+    if (this.props.load) {
+      return (
+        <div id="loading-pokeball-container">
+          <div id="loading-pokeball"></div>
+        </div>
+      )
+    } else {
+      return null
+    }
+  }
+
   render() {
     let pokemonLis = this.props.pokemon.map((pokemon) => (
       <PokemonIndexItem pokemon={pokemon} key={pokemon.id} />
     ));
     return (
       <section className="pokedex">
+        {this.loadSpinner()}
         <Switch>
           <Route path="/pokemon/:pokemonId" component={ PokemonDetailContainer } />
           <Route component={ PokemonFormContainer } />
