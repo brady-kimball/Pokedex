@@ -22,7 +22,7 @@ class PokemonForm extends React.Component {
   errors() {
     if (this.props.errors[0]) {
       return(
-        <ul>
+        <ul className="errors">
           {this.props.errors.map( (error, idx) => <li key={idx}>{error}</li>)}
         </ul>
       )
@@ -72,6 +72,10 @@ class PokemonForm extends React.Component {
             value={this.state.image_url}
             onChange={this.updatePokemon("image_url").bind(this)}
             placeholder="Image Url"/>
+          <select onChange={this.updatePokemon("poke_type").bind(this)}
+            value={this.state.poke_type}>
+            {typeOptions}
+          </select>
           <input  type="text"
             value={this.state.attack}
             onChange={this.updatePokemon("attack").bind(this)}
@@ -80,10 +84,6 @@ class PokemonForm extends React.Component {
             value={this.state.defense}
             onChange={this.updatePokemon("defense").bind(this)}
             placeholder="Defense"/>
-          <select onChange={this.updatePokemon("poke_type").bind(this)}
-            value={this.state.poke_type}>
-            {typeOptions}
-          </select>
           <input  type="text"
             value={this.state.moves[0] || ""}
             onChange={this.updateMoves(0).bind(this)}
