@@ -2,6 +2,7 @@ import React from 'react';
 import { values } from 'lodash';
 import { Route, Link } from 'react-router-dom'
 import ItemDetailContainer from './item_detail_container';
+import PokemonFormContainer from './pokemon_form_container';
 
 class PokemonDetail extends React.Component {
   componentDidMount() {
@@ -31,7 +32,9 @@ class PokemonDetail extends React.Component {
         <figure><img className="poke-image"
                      src={this.props.pokemonDetail.image_url} /></figure>
         <ul>
-          <li><h2>{this.props.pokemonDetail.name}</h2></li>
+          <li><h2>{this.props.pokemonDetail.name} (<Link
+              to={`/pokemon/${this.props.pokemonDetail.id}/edit`}>Edit</Link>)
+          </h2></li>
           <li><h3>Type: {this.props.pokemonDetail.poke_type}</h3></li>
           <li><h3>Attack: {this.props.pokemonDetail.attack}</h3></li>
           <li><h3>Defense: {this.props.pokemonDetail.defense}</h3></li>

@@ -30,6 +30,7 @@ class PokemonIndex extends React.Component {
       <section className="pokedex">
         {this.loadSpinner()}
         <Switch>
+          <Route path="/pokemon/:pokemonId/edit" component={PokemonFormContainer} />
           <Route path="/pokemon/:pokemonId" component={ PokemonDetailContainer } />
           <Route component={ PokemonFormContainer } />
         </Switch>

@@ -11,10 +11,11 @@ const Root = ({ store }) => (
           <nav>
             <img src="./assets/pokeball.svg" alt="pokedex" />
             <ul>
-              <li><Link to="/">Create Pokemon!</Link></li>  
+              <li><Link to="/">Create Pokemon!</Link></li>
             </ul>
           </nav>
         </header>
+        
         <Route path="/" component={ PokemonIndexContainer } />
       </section>
     </HashRouter>

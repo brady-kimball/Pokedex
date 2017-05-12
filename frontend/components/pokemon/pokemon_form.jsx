@@ -2,20 +2,44 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 class PokemonForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = this.initializeState();
-
+  componentDidMount() {
+    if (this.props.match.path === "/pokemon/:pokemonId/edit") {
+      this.props.requestSinglePokemon(this.props.match.params.pokemonId).then(this.initializeState.bind(this))
+    }
   }
 
-  initializeState() {
-    return {
+  constructor(props) {
+    super(props);
+    this.state = {
       name: "",
       image_url: "",
       poke_type: "bug",
       attack: "",
       defense: "",
       moves: []
+    };
+  }
+
+  initializeState() {
+    if (this.props.match.path === "/pokemon/:pokemonId/edit") {
+      let poke = this.props.pokemon;
+      this.setState({
+        name: poke.name,
+        image_url: poke.image_url,
+        poke_type: poke.poke_type,
+        attack: poke.attack,
+        defense: poke.defense,
+        moves: poke.moves
+      });
+    } else {
+      this.setState({
+        name: "",
+        image_url: "",
+        poke_type: "bug",
+        attack: "",
+        defense: "",
+        moves: []
+      })
     }
   }
 
@@ -50,9 +74,15 @@ class PokemonForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createPokemon(this.state).then(newPokemon => {
-      this.props.history.push(`pokemon/${newPokemon.id}`);
-    });
+    if (this.props.match.path === "/pokemon/:pokemonId/edit") {
+      this.props.requestUpdatePokemon(Object.assign({}, this.state, {id: this.props.pokemon.id})).then(editedPokemon => {
+        this.props.history.push(`pokemon/${editedPokemon.id}`);
+      });
+    } else {
+      this.props.createPokemon(this.state).then(newPokemon => {
+        this.props.history.push(`pokemon/${newPokemon.id}`);
+      });
+    }
   }
 
   render() {
