@@ -72,6 +72,10 @@ class PokemonForm extends React.Component {
     };
   }
 
+  buttonText() {
+    return (this.props.match.path === "/pokemon/:pokemonId/edit") ? "Update Pokemon" : "Create Pokemon"
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     if (this.props.match.path === "/pokemon/:pokemonId/edit") {
@@ -122,7 +126,7 @@ class PokemonForm extends React.Component {
             value={this.state.moves[1] || ""}
             onChange={this.updateMoves(1).bind(this)}
             placeholder="Move 2"/>
-          <button>Create Pokemon</button>
+          <button>{this.buttonText()}</button>
         </form>
       </section>
     )
